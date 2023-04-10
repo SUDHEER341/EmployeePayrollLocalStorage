@@ -25,13 +25,14 @@
         </div>
       </header>
       <!-- UC2 -->
-        <div class="form-content">
-          <form class="form" action="#" onsubmit="save(event);return false">
+        <div class="form-content" id="formId">
+          <form class="form" action="#" onreset ="resetForm()" onsubmit="save()">
            <div class="form-head"> Employee Payroll form </div>
             <div class="row-content">
               <label class="label text" for="name">Name</label>
               <input class="input" type="text" id="name" name="name" placeholder="your name.." required>
-              <error-output class="name-error" for="name" style="color: red;"></error-output>
+              <small id="errormsg">Please enter first  character in uppercase and  minimum 3 character </small>
+
 
             </div>
             <!-- UC3 -->
@@ -84,7 +85,7 @@
             <div class="row-content">
               <label class="label text" for="salary">salary</label>
               <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
-              <output class="salary-output text" for="salary">400000</output>
+              <span class="salary-output text" for="salary">400000</span>
             </div>
 
             <!-- UC 5 -->
@@ -155,29 +156,12 @@
           <div class="buttonParent">
            <a class="resetButton button cancelButton" href="https://www.google.com/" target="_blank" onclick="alert('By clicking cancel takes you to home page')">Cancel</a> 
              <div class="submit-reset">
-              <button type="submit" class="button submitButton" id="submitButton">submit</button>
+              <button type="submit" class="button submitButton" id="submitButton" >submit</button>
               <button type="reset" class="submitButton button">Reset</button>
             </div>
           </div>
         </form>
         </div>
       
-      <script>
-        const name = document.querySelector('#name');
-          const nameerror = document.querySelector('.name-error');
-          name.addEventListener('input',function(){
-            let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-            if(nameRegex.test(name.value))
-            nameerror.textContent ="";
-            else nameerror.textContent ="Your entering wrong input";
-          });
-        const salary=document.querySelector('#salary');
-        const output = document.querySelector('.salary-output');
-        salary.addEventListener('input',function(){
-          output.innerHTML = salary.value;
-          });
-
-
-        </script>
 </body>
 </html>
